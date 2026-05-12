@@ -43,7 +43,7 @@ const Login = () => {
                             <input onChange={inputHandle} value={state.password} className='px-3 py-2 outline-none border border-slate-700 bg-transparent rounded-md'  type='password' name='password' placeholder='Password' id='password' required />
                         </div>
 
-                        <button className='bg-slate-800 w-full hover:shadow-blue-300/50 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3'>Sign up</button>
+                        <button className='bg-slate-800 w-full hover:shadow-blue-300/50 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3'>Sign in</button>
 
                         <div className='flex items-center mb-3 gap-3 justify-center '>
                             <p>Don't have an account? <Link className='font-bold' to='/register'>Sign up</Link></p>
