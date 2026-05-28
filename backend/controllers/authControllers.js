@@ -1,5 +1,5 @@
 const adminModel = require('../models/adminModel');
-const { response    n } = require('../utiles/response');
+const { responseReturn } = require('../utiles/response');
 const bcrpty = require('bcrypt')
 const { createToken } = require('../utiles/tokenCreate');
 
@@ -35,6 +35,24 @@ class authControllers {
         } catch (error) {
             responseReturn(res, 500, {error: error.message})
         }     
+    }
+
+    getUser = async (req, res) => {
+        const {id, role} = req;
+
+        try {
+            if (role === 'admin') {
+                const user = await adminModel.findById(id)
+                responseReturn(res, 200, {userInfo : user})
+            } else {
+                console.log('Seller info');
+                
+            }
+            
+        } catch (error) {
+            console.log(error.message);
+            
+        }
     }
 }
 
