@@ -1,8 +1,11 @@
-const express = require('express');
-const router = express.Router();
+// const express = require('express');
+// const router = express.Router();
 
-router.get('/status', (req, res) => {
-  res.json({ ok: true, msg: 'auth router alive' });
-});
+// router.get('/status', (req, res) => {
+//   res.json({ ok: true, msg: 'auth router alive' });
+// });
 
-module.exports = router;
+// router.post('/admin-login', authControllers.admin_login);
+
+
+// module.exports = router;
