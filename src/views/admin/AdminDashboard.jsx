@@ -94,7 +94,6 @@ const AdminDashboard = () => {
     return (
         <div className='px-2 md:px-7 py-5'>
 
-            {/* CARDS */}
             <div className='w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-7'>
 
                 <div className='flex justify-between items-center p-5 bg-[#fae8e8] rounded-md gap-3'>
@@ -131,10 +130,8 @@ const AdminDashboard = () => {
 
             </div>
 
-            {/* CHART + CHAT (ONLY LAYOUT FIX KEPT) */}
             <div className='w-full flex flex-wrap mt-7 items-stretch'>
 
-                {/* CHART */}
                 <div className='w-full lg:w-7/12 lg:pr-3'>
                     <div className='w-full bg-[#6a5fdf] p-4 rounded-md h-full'>
                         <Chart
@@ -147,7 +144,6 @@ const AdminDashboard = () => {
                     </div>
                 </div>
 
-                {/* CHAT (ORIGINAL STYLE RESTORED) */}
                 <div className='w-full lg:w-5/12 lg:pl-4 mt-6 lg:mt-0'>
                     <div className='w-full bg-[#6a5fdf] p-4 rounded-md text-[#d0d2d6] h-full'>
 
