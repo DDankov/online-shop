@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { LuArrowDownToLine } from "react-icons/lu";
 import { Link } from 'react-router-dom';
 import Pagination from '../Pagination';
+//import { to } from '../../../backend/node_modules/@types/node/vm.d';
 
 const Orders = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -145,7 +146,7 @@ const Orders = () => {
     <div className='py-3 w-[18%] font-medium'>Pending</div>
     <div className='py-3 w-[18%] font-medium'>Pending</div>
     <div className='py-3 w-[18%] font-medium'>
-        <Link>View</Link>
+        <Link to='/admin/dashboard/order/details/3'>View</Link>
          </div>
     <div onClick={(e) => setShow(!show)} className='py-3 w-[8%] font-medium'><LuArrowDownToLine />
 </div> 
