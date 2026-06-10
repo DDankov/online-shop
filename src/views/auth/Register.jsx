@@ -1,16 +1,23 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';import { Link } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
+import { useDispatch, useSelector } from 'react-redux';
+import { PropagateLoader } from 'react-spinners' 
+import { overrideStyle } from '../../utils/utils';
+import { seller_register,messageClear } from '../../store/reducers/authReducer';
+import toast from 'react-hot-toast';
 
 
 const Register = () => {
-
     const [state, setState] = useState({
         name: '',
         email: '',
         password: ''
     })
+
+    const {loader,successMessage,errorMessage} = useSelector(state=>state.auth)
+        const dispatch = useDispatch()
+
 
     const inputHandle = (e) => {
         setState({
@@ -21,9 +28,22 @@ const Register = () => {
 
     const submit = (e) => {
         e.preventDefault();
-        console.log(state);
-        
+        dispatch(seller_register(state))        
     }
+
+      useEffect(() => {
+
+        if (successMessage) {
+            toast.success(successMessage)
+            dispatch(messageClear())  
+        }
+        if (errorMessage) {
+            toast.error(errorMessage)
+            dispatch(messageClear())
+        }
+        
+
+    },[successMessage,errorMessage])
 
 
 
@@ -55,7 +75,11 @@ const Register = () => {
                             <label htmlFor='checkbox'>I agree to the privacy policy and terms</label>
                         </div>
 
-                        <button className='bg-slate-800 w-full hover:shadow-blue-300/50 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3'>Sign up</button>
+                        <button disabled={loader ? true : false} className='bg-slate-800 w-full hover:shadow-blue-300/50 hover:shadow-lg text-white rounded-md px-7 py-2 mb-3'>
+                        {
+                            loader ? <PropagateLoader color='#fff' cssOverride={overrideStyle}/> : 'Sign up'
+                        }
+                            </button>
 
                         <div className='flex items-center mb-3 gap-3 justify-center '>
                             <p>Already have an account? <Link className='font-bold' to='/login'>Sign in</Link></p>
